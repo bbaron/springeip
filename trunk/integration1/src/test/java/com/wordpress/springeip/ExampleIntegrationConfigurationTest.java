@@ -25,14 +25,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-public class ExampleConfigurationTest {
+public class ExampleIntegrationConfigurationTest {
 	
 	@Autowired
-	private Service service;
+	private DeepThoughtGateway gateway;
 
 	@Test
 	public void the_Answer_to_the_Ultimate_Question_of_Life_the_Universe_and_Everything_is_42() throws Exception {
-		assertEquals(Service.THE_ULTIMATE_ANSWER, service.getTheAnswerTo(Service.THE_ULTIMATE_QUESTION));
+		assertEquals(Service.THE_ULTIMATE_ANSWER, gateway.askQuestion(Service.THE_ULTIMATE_QUESTION));
 	}
 	
 }
