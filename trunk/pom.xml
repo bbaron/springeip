@@ -10,6 +10,11 @@
 	<name>springeip</name>
 	<url>http://springeip.wordpress.com</url>
 
+  <modules>
+    <module>springeip-setup</module>
+    <module>integration1</module>
+    <module>integration2</module>
+  </modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.framework.version>3.0.3.RELEASE</spring.framework.version>
