@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.springframework.org/schema/integration"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-1.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<spring:import resource="classpath:/META-INF/spring/app-context.xml"/>
+	 
+	<channel id="questionChannel" />
+	<channel id="answerChannel" />
+	<service-activator id="exampleServiceActivator" ref="service"
+		input-channel="questionChannel" output-channel="answerChannel" method="getTheAnswerTo" />
+	<gateway service-interface="com.wordpress.springeip.DeepThoughtGateway"
+		id="deepThoughtGateway" default-request-channel="questionChannel"
+		default-reply-channel="answerChannel" />
+
+</spring:beans>
