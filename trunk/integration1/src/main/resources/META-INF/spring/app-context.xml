@@ -6,7 +6,4 @@
 
 	<bean id="service" class="com.wordpress.springeip.ExampleService" />
 
-	<int:channel id="questionChannel" />
-	<int:channel id="answerChannel" />
-
 </beans>
