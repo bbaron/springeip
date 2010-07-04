@@ -6,11 +6,12 @@ package com.wordpress.springeip;
  */
 public class ExampleService implements Service {
 	
-	/**
-	 * Reads next record from input
-	 */
-	public String getMessage() {
-		return "Hello world!";	
+	@Override
+	public String getTheAnswerTo(String theQuestion) throws UnsupportedQuestionException {
+		if (theQuestion.equals(THE_ULTIMATE_QUESTION)) {
+			return THE_ULTIMATE_ANSWER;
+		}
+		throw new UnsupportedQuestionException(theQuestion);
 	}
 
 }
