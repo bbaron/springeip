@@ -8,10 +8,10 @@
 	 
 	<channel id="questionChannel" />
 	<channel id="answerChannel" />
+	<service-activator id="exampleServiceActivator" ref="service"
+		input-channel="questionChannel" output-channel="answerChannel" method="getTheAnswerTo" />
 	<gateway service-interface="com.wordpress.springeip.DeepThoughtGateway"
 		id="deepThoughtGateway" default-request-channel="questionChannel"
 		default-reply-channel="answerChannel" />
 
-	<service-activator id="exampleServiceActivator" ref="service"
-		input-channel="questionChannel" output-channel="answerChannel" method="getTheAnswerTo" />
 </spring:beans>

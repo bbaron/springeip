@@ -20,19 +20,32 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static com.wordpress.springeip.Service.*;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ExampleIntegrationConfigurationTest {
-	
+
 	@Autowired
 	private DeepThoughtGateway gateway;
 
 	@Test
-	public void the_Answer_to_the_Ultimate_Question_of_Life_the_Universe_and_Everything_is_42() throws Exception {
-		assertEquals(Service.THE_ULTIMATE_ANSWER, gateway.askQuestion(Service.THE_ULTIMATE_QUESTION));
+	public void the_Answer_to_the_Ultimate_Question_of_Life_the_Universe_and_Everything_is_42()
+			throws Exception {
+		assertEquals(THE_ULTIMATE_ANSWER,
+				gateway.askQuestion(THE_ULTIMATE_QUESTION));
 	}
-	
+
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"/META-INF/spring/integration-context.xml");
+		DeepThoughtGateway gateway = ctx.getBean(DeepThoughtGateway.class);
+		System.out.printf("%s? %s\n", THE_ULTIMATE_QUESTION, gateway.askQuestion(THE_ULTIMATE_QUESTION));
+		ctx.close();
+	}
+
 }
