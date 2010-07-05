@@ -16,10 +16,10 @@
 	<util:properties id="applicationProperties" location="classpath:applicationContext.properties"/>
 	<context:property-placeholder properties-ref="applicationProperties" />
 
+	<publish-subscribe-channel id="newLeadChannel" />
+	
 	<gateway id="leadGateway" default-request-channel="newLeadChannel"
 		service-interface="crm.integration.gateways.LeadGateway" />
-	
-	<publish-subscribe-channel id="newLeadChannel" />
 	
 	<service-activator
 		input-channel="newLeadChannel"
