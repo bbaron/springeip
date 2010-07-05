@@ -9,4 +9,8 @@
 	<packaging>pom</packaging>
 	<artifactId>crm-example</artifactId>
 	<name>crm-example</name>
+	<modules>
+		<module>crm-api</module>
+		<module>crm</module>
+	</modules>
 </project>
