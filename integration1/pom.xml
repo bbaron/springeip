@@ -25,5 +25,11 @@
 			</testResource>
 		</testResources>
 	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+		</dependency>
+	</dependencies>
 
 </project>
