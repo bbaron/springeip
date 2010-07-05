@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>integration1</artifactId>
 	<packaging>jar</packaging>
-	<name>integration2</name>
+	<name>integration1</name>
 
 	<build>
 		<testResources>
@@ -26,5 +26,10 @@
 			</testResource>
 		</testResources>
 	</build>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+		</dependency>
+	</dependencies>
 </project>

@@ -10,17 +10,19 @@
 	<name>springeip</name>
 	<url>http://springeip.wordpress.com</url>
 
-  <modules>
-    <module>springeip-setup</module>
-    <module>integration1</module>
-    <module>integration2</module>
-    <module>crm-example</module>
-  </modules>
+	<modules>
+		<module>springeip-setup</module>
+		<module>integration1</module>
+		<module>integration2</module>
+		<module>crm-example</module>
+	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.framework.version>3.0.3.RELEASE</spring.framework.version>
 		<spring.integration.version>1.0.4.RELEASE</spring.integration.version>
-
+		<servlet.version>2.5</servlet.version>
+		<jstl.version>1.2</jstl.version>
+		<mail.version>1.4.1</mail.version>
 	</properties>
 
 	<dependencies>
@@ -48,6 +50,21 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring.framework.version}</version>
 		</dependency>
@@ -56,26 +73,38 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.framework.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>org.springframework.integration</artifactId>
-			<version>1.0.4.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>org.springframework.aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springframework.context</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springframework.transaction</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-mail</artifactId>
+				<version>${spring.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-core</artifactId>
+				<version>${spring.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>org.springframework.web.servlet</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>${jstl.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
