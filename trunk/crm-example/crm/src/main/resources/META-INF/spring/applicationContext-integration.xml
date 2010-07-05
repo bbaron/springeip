@@ -13,6 +13,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- Note: This requires Spring Integration 1.0.3 or higher. -->
+	<context:component-scan base-package="crm.service" />
 	<util:properties id="applicationProperties" location="classpath:applicationContext.properties"/>
 	<context:property-placeholder properties-ref="applicationProperties" />
 
