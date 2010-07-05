@@ -12,8 +12,7 @@
 
 	<!-- Note: This requires Spring Integration 1.0.3 or higher. -->
 	<context:property-placeholder location="classpath:applicationContext.properties" />
-	<!-- We're defining request channels defined on a per-operation basis using
-	     Java 5 annotations instead of here. See LeadGateway.java. -->
+
 	<gateway id="leadGateway" default-request-channel="newLeadChannel"
 		service-interface="crm.integration.gateways.LeadGateway" />
 	
@@ -24,21 +23,4 @@
 		ref="leadService"
 		method="createLead" />
 	
-	<!-- ================================================================== -->
-	<!-- Outbound SMTP adapter (for confirmation e-mails)                   -->
-	<!-- ================================================================== -->
-	
-	<transformer input-channel="newLeadChannel" output-channel="confEmailChannel">
-		<beans:bean class="crm.integration.transformers.LeadToEmailTransformer">
-			<beans:property name="confFrom" value="${conf.email.from}" />
-			<beans:property name="confSubject" value="${conf.email.subject}" />
-			<beans:property name="confText" value="${conf.email.text}" />
-		</beans:bean>
-	</transformer>
-	
-	<channel id="confEmailChannel" />
-	
-	<mail:outbound-channel-adapter
-		channel="confEmailChannel"
-		mail-sender="mailSender" />
 </beans:beans>

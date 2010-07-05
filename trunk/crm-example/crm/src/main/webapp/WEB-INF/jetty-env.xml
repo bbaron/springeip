@@ -12,7 +12,7 @@
 						<Put name="mail.smtp.host">localhost</Put>
 						<Put name="mail.smtp.auth">false</Put>
 						<Put name="mail.smtp.port">25</Put>
-						<Put name="mail.debug">true</Put>
+						<Put name="mail.debug">false</Put>
 					</New>
 				</Set>
 			</New>
