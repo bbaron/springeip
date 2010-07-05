@@ -8,9 +8,9 @@
 		<groupId>com.wordpress.springeip</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>integration2</artifactId>
+	<artifactId>integration1</artifactId>
 	<packaging>jar</packaging>
-	<name>integration2</name>
+	<name>integration1</name>
 	<build>
 		<testResources>
 			<testResource>
