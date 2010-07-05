@@ -1,8 +1,8 @@
 package crm.integration.transformers;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.springframework.integration.annotation.Transformer;
 import org.springframework.mail.MailMessage;
 import org.springframework.mail.SimpleMailMessage;
@@ -10,7 +10,7 @@ import org.springframework.mail.SimpleMailMessage;
 import crm.model.Lead;
 
 public class LeadToEmailTransformer {
-	private static Logger log = Logger.getLogger("global");
+	private Logger logger = Logger.getLogger(getClass());
 
 	private String confFrom;
 	private String confSubj;
@@ -42,7 +42,7 @@ public class LeadToEmailTransformer {
 
 	@Transformer
 	public MailMessage transform(Lead lead) {
-		log.info("Transforming lead to confirmation e-mail: " + lead);
+		logger.info("Transforming lead to confirmation e-mail: " + lead);
 
 		String leadFullName = lead.getFullName();
 		String leadEmail = lead.getEmail();
@@ -56,7 +56,7 @@ public class LeadToEmailTransformer {
 		msg.setSentDate(new Date());
 		msg.setText(confText);
 
-		log.info("Transformed lead to confirmation e-mail: " + msg);
+		logger.info("Transformed lead to confirmation e-mail: " + msg);
 		return msg;
 	}
 }
