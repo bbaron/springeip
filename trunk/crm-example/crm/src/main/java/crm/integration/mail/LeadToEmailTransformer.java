@@ -1,19 +1,25 @@
-package crm.integration.transformers;
+package crm.integration.mail;
 
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.Transformer;
 import org.springframework.mail.MailMessage;
 import org.springframework.mail.SimpleMailMessage;
 
 import crm.model.Lead;
 
+@MessageEndpoint("leadToEmailTransformer")
 public class LeadToEmailTransformer {
 	private Logger logger = Logger.getLogger(getClass());
 
+	@Value("#{applicationProperties['crm.conf.email.from']}")
 	private String confFrom;
+	@Value("#{applicationProperties['crm.conf.email.subject']}")
 	private String confSubj;
+	@Value("#{applicationProperties['crm.conf.email.text']}")
 	private String confText;
 
 	public String getConfFrom() {
@@ -40,7 +46,7 @@ public class LeadToEmailTransformer {
 		this.confText = confText;
 	}
 
-	@Transformer
+	@Transformer(inputChannel = "", outputChannel = "")
 	public MailMessage transform(Lead lead) {
 		logger.info("Transforming lead to confirmation e-mail: " + lead);
 
