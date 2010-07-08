@@ -1,10 +1,13 @@
 package crm.model;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Lead {
+public class Lead implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private static DateFormat dateFormat = new SimpleDateFormat();
 	
 	private String firstName;
@@ -154,7 +157,6 @@ public class Lead {
 			", workPhone=" + workPhone +
 			", mobilePhone=" + mobilePhone +
 			", email=" + email +
-			", dateCreated=" + dateFormat.format(dateCreated) +
 			"]";
 	}
 }

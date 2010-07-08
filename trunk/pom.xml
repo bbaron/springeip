@@ -77,8 +77,18 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.integration</groupId>
 				<artifactId>spring-integration-mail</artifactId>
+				<version>${spring.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-jms</artifactId>
 				<version>${spring.integration.version}</version>
 			</dependency>
 			<dependency>
@@ -103,6 +113,26 @@
 				<version>${jstl.version}</version>
 				<scope>runtime</scope>
 			</dependency>
+    <dependency>
+            <groupId>javax.jms</groupId>
+            <artifactId>com.springsource.javax.jms</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+    <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>com.springsource.org.apache.activemq</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+    <dependency>
+            <groupId>org.apache.xbean</groupId>
+            <artifactId>com.springsource.org.apache.xbean.spring</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+    <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>com.springsource.javax.management.j2ee</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
